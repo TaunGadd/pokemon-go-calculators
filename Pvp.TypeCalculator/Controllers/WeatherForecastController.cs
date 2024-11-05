@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Pvp.TypeCalculator.Models;
 
 namespace Pvp.TypeCalculator.Controllers
 {
