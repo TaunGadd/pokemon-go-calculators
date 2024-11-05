@@ -14,5 +14,18 @@ namespace Pvp.TypeCalculator.Domain
                 new Move(MoveConstants._acidSpray, PokemonType.Poison),
             };
         }
+
+        public Move GetMove(string moveName)
+        {
+            var move = GetAllMoves().Find(x => x.Name == moveName);
+
+            if (move == null)
+            {
+                // Create MoveNotFoundException();
+                throw new Exception();
+            }
+
+            return move;
+        }
     }
 }

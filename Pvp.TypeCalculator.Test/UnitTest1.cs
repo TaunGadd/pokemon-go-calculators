@@ -16,12 +16,10 @@ namespace Pvp.TypeCalculator.Test
         [TestMethod]
         public void TestMethod1()
         {
-            var allMoves = movesRepo.GetAllMoves();
-
             MoveSet bulbasaurMoves = new MoveSet(
-                allMoves.Find(x => x.Name == MoveConstants._tackle),
-                allMoves.Find(x => x.Name == MoveConstants._vineWhip),
-                allMoves.Find(x => x.Name == MoveConstants._acidSpray)
+                movesRepo.GetMove(MoveConstants._tackle),
+                movesRepo.GetMove(MoveConstants._vineWhip),
+                movesRepo.GetMove(MoveConstants._acidSpray)
             );
         }
     }
