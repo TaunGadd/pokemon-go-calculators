@@ -1,4 +1,4 @@
-﻿using Pvp.TypeCalculator.Models;
+﻿using Pvp.TypeCalculator.Moves;
 
 namespace Pvp.TypeCalculator.Domain
 {

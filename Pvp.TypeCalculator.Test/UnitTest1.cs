@@ -1,5 +1,6 @@
 using Pvp.TypeCalculator.Domain;
-using Pvp.TypeCalculator.Models;
+using Pvp.TypeCalculator.Moves;
+using Pvp.TypeCalculator.PokemonTypes;
 
 namespace Pvp.TypeCalculator.Test
 {
@@ -17,10 +18,20 @@ namespace Pvp.TypeCalculator.Test
         public void TestMethod1()
         {
             MoveSet bulbasaurMoves = new MoveSet(
-                movesRepo.GetMove(MoveConstants._tackle),
-                movesRepo.GetMove(MoveConstants._vineWhip),
-                movesRepo.GetMove(MoveConstants._acidSpray)
+                movesRepo.GetMove(MoveConstants.FastMoves._vineWhip),
+                movesRepo.GetMove(MoveConstants.ChargeMoves._tackle)
             );
+
+            var bulbasaur = new Pokemon("Bulbasaur", bulbasaurMoves, PokemonType.Grass, PokemonType.Poison);
+
+            MoveSet diglettMoves = new MoveSet(
+                movesRepo.GetMove(MoveConstants.FastMoves._sandAttack),
+                movesRepo.GetMove(MoveConstants.ChargeMoves._astonish)
+            );
+
+            var diglett = new Pokemon("Diglett", diglettMoves, PokemonType.Ground);
+
+            bulbasaur.Attack(diglett);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Pvp.TypeCalculator.Models
+﻿using Pvp.TypeCalculator.PokemonTypes;
+
+namespace Pvp.TypeCalculator.Moves
 {
     public class Move
     {
