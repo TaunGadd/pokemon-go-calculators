@@ -3,6 +3,6 @@
     public enum MoveType
     {
         FastAttack = 0,
-        ChargeAttach = 1,
+        ChargeAttack = 1,
     }
 }

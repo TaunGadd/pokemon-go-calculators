@@ -21,6 +21,7 @@ namespace Pvp.TypeCalculator
         public Pokemon(string name, MoveSet moveSet, PokemonType type1, PokemonType type2) 
         {
             Name = name;
+            MoveSet = moveSet;
             Type1 = type1;
             Type2 = type2;
 
@@ -31,9 +32,9 @@ namespace Pvp.TypeCalculator
         public double Attack(Pokemon target)
         {
             var attackRating = _typeInteraction.GetAttackRating(MoveSet.FastMove, target) + _typeInteraction.GetAttackRating(MoveSet.ChargeMove, target);
-            var defenseRating = _typeInteraction.GetAttackRating(target.MoveSet.FastMove, this) + _typeInteraction.GetAttackRating(target.MoveSet.ChargeMove, target);
+            var defenseRating = _typeInteraction.GetAttackRating(target.MoveSet.FastMove, this) + _typeInteraction.GetAttackRating(target.MoveSet.ChargeMove, this);
 
-            return attackRating + defenseRating;
+            return attackRating - defenseRating;
         }
 
     }

@@ -1,4 +1,4 @@
-﻿using Pvp.TypeCalculator.Pokemon;
+﻿using Pvp.TypeCalculator.Moves;
 using Pvp.TypeCalculator.PokemonTypes;
 
 namespace Pvp.TypeCalculator.Domain
@@ -10,11 +10,11 @@ namespace Pvp.TypeCalculator.Domain
         {
             return new List<Move>
             {
-                new Move(MoveConstants.FastMoves._vineWhip, PokemonType.Grass),
-                new Move(MoveConstants.FastMoves._sandAttack, PokemonType.Ground),
-                new Move(MoveConstants.ChargeMoves._tackle, PokemonType.Normal),
-                new Move(MoveConstants.ChargeMoves._acidSpray, PokemonType.Poison),
-                new Move(MoveConstants.ChargeMoves._astonish, PokemonType.Ghost),
+                new Move(MoveConstants.FastMoves._vineWhip, PokemonType.Grass, MoveType.FastAttack),
+                new Move(MoveConstants.FastMoves._sandAttack, PokemonType.Ground, MoveType.FastAttack),
+                new Move(MoveConstants.ChargeMoves._tackle, PokemonType.Normal, MoveType.ChargeAttack),
+                new Move(MoveConstants.ChargeMoves._acidSpray, PokemonType.Poison, MoveType.ChargeAttack),
+                new Move(MoveConstants.ChargeMoves._astonish, PokemonType.Ghost, MoveType.ChargeAttack),
             };
         }
 

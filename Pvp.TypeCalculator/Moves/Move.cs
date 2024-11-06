@@ -6,11 +6,13 @@ namespace Pvp.TypeCalculator.Moves
     {
         public string Name { get; }
         public PokemonType Type { get; }
+        public MoveType MoveType { get; }
 
-        public Move(string name, PokemonType type)
+        public Move(string name, PokemonType type, MoveType moveType)
         {
             Name = name;
             Type = type;
+            MoveType = moveType;
         }
     }
 }
