@@ -8,15 +8,15 @@ public class PokemonController : Controller
 {
     IPokemonService _pokemonService;
 
-    public PokemonController(PokemonService pokemonService)
+    public PokemonController(IPokemonService pokemonService)
     {
         _pokemonService = pokemonService;
     }
 
     [HttpPost]
-    public async void CreatePokemon(PokemonDTO pokemon)
+    public async Task CreatePokemon(PokemonDTO dto)
     {
-        await _pokemonService.CreatePokemon(pokemon);
+        await _pokemonService.CreatePokemon(dto);
     }
 
     [HttpGet]
@@ -26,9 +26,9 @@ public class PokemonController : Controller
     }
 
     [HttpPut]
-    public async Task UpdatePokemon(PokemonDTO pokemon)
+    public async Task UpdatePokemon(PokemonDTO dto)
     {
-        await _pokemonService.UpdatePokemon(pokemon);
+        await _pokemonService.UpdatePokemon(dto);
     }
 
     [HttpDelete]
