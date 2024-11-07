@@ -6,7 +6,7 @@ namespace Pvp.TypeCalculator.Controllers;
 
 public class MoveController : Controller
 {
-    IMoveService _moveService;
+    private readonly IMoveService _moveService;
 
     public MoveController(IMoveService moveService)
     {

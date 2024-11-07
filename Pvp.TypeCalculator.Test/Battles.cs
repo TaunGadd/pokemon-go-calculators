@@ -1,14 +1,15 @@
 using Pvp.TypeCalculator.Domain;
 using Pvp.TypeCalculator.DTOs;
+using Pvp.TypeCalculator.Enums;
+using Pvp.TypeCalculator.Models;
 using Pvp.TypeCalculator.Moves;
-using Pvp.TypeCalculator.PokemonTypes;
 
 namespace Pvp.TypeCalculator.Test;
 
 [TestClass]
 public class Battles
 {
-    IMovesRepository movesRepo;
+    IMoveRepository movesRepo;
 
     private Pokemon Bulbasaur;
     private Pokemon Diglett;
@@ -16,7 +17,7 @@ public class Battles
     [TestInitialize]
     public void Setup()
     {
-        movesRepo = new FakeMovesRepository();
+        movesRepo = new FakeMoveRepository();
 
         CreatePokemon();
     }

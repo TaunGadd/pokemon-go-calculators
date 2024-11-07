@@ -1,4 +1,4 @@
-﻿namespace Pvp.TypeCalculator.PokemonTypes;
+﻿namespace Pvp.TypeCalculator.Enums;
 
 public enum PokemonType
 {

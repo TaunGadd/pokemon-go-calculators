@@ -1,8 +1,8 @@
-﻿using Pvp.TypeCalculator.Moves;
+﻿using Pvp.TypeCalculator.Models;
 
-namespace Pvp.TypeCalculator.PokemonTypes;
+namespace Pvp.TypeCalculator.Calculator;
 
-public class StandardInteraction : IPokemonTypeInteraction
+public class BasicInteraction : IPokemonTypeInteraction
 {
     private double[][] StrengthChart { get; } = {
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],             //Normal
@@ -25,15 +25,19 @@ public class StandardInteraction : IPokemonTypeInteraction
         [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1],           //Fairy
     };
 
-    public double GetAttackRating(Move attackMove, Pokemon target)
+    public Task<double> GetAttackRating(Move attackMove, Pokemon target)
     {
+        double rating;
+
         if (target.IsDualType)
         {
-            return StrengthChart[(int)attackMove.Type][(int)target.Type1] * StrengthChart[(int)attackMove.Type][(int)target.Type2];
+            rating = StrengthChart[(int)attackMove.Type][(int)target.Type1] * StrengthChart[(int)attackMove.Type][(int)target.Type2];
         }
         else
         {
-            return StrengthChart[(int)attackMove.Type][(int)target.Type1];
+            rating = StrengthChart[(int)attackMove.Type][(int)target.Type1];
         }
+
+        return Task.FromResult(rating);
     }
 }

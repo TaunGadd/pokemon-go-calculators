@@ -1,10 +1,9 @@
 ﻿using Pvp.TypeCalculator.DTOs;
-using Pvp.TypeCalculator.Moves;
-using Pvp.TypeCalculator.PokemonTypes;
+using Pvp.TypeCalculator.Enums;
 
 namespace Pvp.TypeCalculator.Domain;
 
-public class FakeMovesRepository : IMovesRepository
+public class FakeMoveRepository : IMoveRepository
 {
     public Task CreateMove(MoveDTO dto)
     {

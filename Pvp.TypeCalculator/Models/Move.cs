@@ -1,11 +1,9 @@
 ﻿using Pvp.TypeCalculator.Enums;
-using System.ComponentModel.DataAnnotations;
 
-namespace Pvp.TypeCalculator.DTOs;
+namespace Pvp.TypeCalculator.Models;
 
-public class MoveDTO
+public class Move
 {
-    [Key]
     public int Id { get; set; }
     public string Name { get; set; }
     public PokemonType Type { get; set; }

@@ -1,30 +1,34 @@
-﻿using Pvp.TypeCalculator.DTOs;
+﻿using Pvp.TypeCalculator.Domain;
+using Pvp.TypeCalculator.DTOs;
 
 namespace Pvp.TypeCalculator.Services;
 
 public class MoveService : IMoveService
 {
-    public MoveService()
+    private readonly IMoveRepository _moveRepository;
+
+    public MoveService(IMoveRepository moveRepository)
     {
+        _moveRepository = moveRepository;
     }
 
-    public Task CreateMove(MoveDTO move)
+    public async Task CreateMove(MoveDTO move)
     {
-        throw new NotImplementedException();
+        await _moveRepository.CreateMove(move);
     }
 
-    public Task<MoveDTO> DeleteMove(int id)
+    public async Task<MoveDTO> DeleteMove(int id)
     {
-        throw new NotImplementedException();
+        return await _moveRepository.DeleteMove(id);
     }
 
-    public Task<MoveDTO> GetMove(int id)
+    public async Task<MoveDTO> GetMove(int id)
     {
-        throw new NotImplementedException();
+        return await _moveRepository.GetMove(id);
     }
 
-    public Task UpdateMove(MoveDTO move)
+    public async Task UpdateMove(MoveDTO move)
     {
-        throw new NotImplementedException();
+        await _moveRepository.UpdateMove(move);
     }
 }

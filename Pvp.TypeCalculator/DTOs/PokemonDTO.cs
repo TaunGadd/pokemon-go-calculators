@@ -1,4 +1,4 @@
-﻿using Pvp.TypeCalculator.PokemonTypes;
+﻿using Pvp.TypeCalculator.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace Pvp.TypeCalculator.DTOs;

@@ -2,7 +2,7 @@
 
 namespace Pvp.TypeCalculator.Domain;
 
-public interface IMovesRepository
+public interface IMoveRepository
 {
     // CRUD
     Task CreateMove(MoveDTO dto);

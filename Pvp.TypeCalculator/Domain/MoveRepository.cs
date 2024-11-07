@@ -3,11 +3,11 @@ using Pvp.TypeCalculator.DTOs;
 
 namespace Pvp.TypeCalculator.Domain;
 
-public class MovesRepository : IMovesRepository
+public class MoveRepository : IMoveRepository
 {
-    private PokemonGoContext _dbContext;
+    private readonly PGContext _dbContext;
 
-    public MovesRepository(PokemonGoContext dbContext)
+    public MoveRepository(PGContext dbContext)
     {
         _dbContext = dbContext;
     }

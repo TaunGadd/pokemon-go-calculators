@@ -1,30 +1,34 @@
-﻿using Pvp.TypeCalculator.DTOs;
+﻿using Pvp.TypeCalculator.Domain;
+using Pvp.TypeCalculator.DTOs;
 
 namespace Pvp.TypeCalculator.Services;
 
 public class PokemonService : IPokemonService
 {
-    public PokemonService()
+    private readonly IPokemonRepository _pokemonRepository;
+
+    public PokemonService(IPokemonRepository pokemonRepository)
     {
+        _pokemonRepository = pokemonRepository;
     }
 
-    public Task CreatePokemon(PokemonDTO pokemon)
+    public async Task CreatePokemon(PokemonDTO pokemon)
     {
-        throw new NotImplementedException();
+        await _pokemonRepository.CreatePokemon(pokemon);
     }
 
-    public Task<PokemonDTO> GetPokemon(int id)
+    public async Task<PokemonDTO> GetPokemon(int id)
     {
-        throw new NotImplementedException();
+        return await _pokemonRepository.GetPokemon(id);
     }
 
-    public Task UpdatePokemon(PokemonDTO pokemon)
+    public async Task UpdatePokemon(PokemonDTO pokemon)
     {
-        throw new NotImplementedException();
+        await _pokemonRepository.UpdatePokemon(pokemon);
     }
 
-    public Task<PokemonDTO> DeletePokemon(int id)
+    public async Task<PokemonDTO> DeletePokemon(int id)
     {
-        throw new NotImplementedException();
+        return await _pokemonRepository.DeletePokemon(id);
     }
 }

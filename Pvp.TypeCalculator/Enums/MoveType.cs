@@ -1,4 +1,4 @@
-﻿namespace Pvp.TypeCalculator.Moves;
+﻿namespace Pvp.TypeCalculator.Enums;
 
 public enum MoveType
 {

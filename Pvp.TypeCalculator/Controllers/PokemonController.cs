@@ -6,7 +6,7 @@ namespace Pvp.TypeCalculator.Controllers;
 
 public class PokemonController : Controller
 {
-    IPokemonService _pokemonService;
+    private readonly IPokemonService _pokemonService;
 
     public PokemonController(IPokemonService pokemonService)
     {
