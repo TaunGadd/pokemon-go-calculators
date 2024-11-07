@@ -3,6 +3,7 @@ using Pvp.TypeCalculator.Enums;
 
 namespace Pvp.TypeCalculator.Domain;
 
+// TODO
 public class FakeMoveRepository : IMoveRepository
 {
     public Task CreateMove(MoveDTO dto)
@@ -30,11 +31,11 @@ public class FakeMoveRepository : IMoveRepository
         return await Task.FromResult(
             new List<MoveDTO>
             {
-                new(MoveConstants.FastMoves._vineWhip, PokemonType.Grass, MoveType.FastAttack),
-                new(MoveConstants.FastMoves._sandAttack, PokemonType.Ground, MoveType.FastAttack),
-                new(MoveConstants.ChargeMoves._tackle, PokemonType.Normal, MoveType.ChargeAttack),
-                new(MoveConstants.ChargeMoves._acidSpray, PokemonType.Poison, MoveType.ChargeAttack),
-                new(MoveConstants.ChargeMoves._astonish, PokemonType.Ghost, MoveType.ChargeAttack),
+                new MoveDTO { Name = MoveConstants.FastMoves._vineWhip, Type = PokemonType.Grass, MoveType = MoveType.FastAttack},
+                new MoveDTO { Name = MoveConstants.FastMoves._sandAttack, Type = PokemonType.Ground, MoveType = MoveType.FastAttack },
+                new MoveDTO { Name = MoveConstants.ChargeMoves._tackle, Type = PokemonType.Normal, MoveType = MoveType.ChargeAttack },
+                new MoveDTO { Name = MoveConstants.ChargeMoves._acidSpray, Type = PokemonType.Poison, MoveType = MoveType.ChargeAttack },
+                new MoveDTO { Name = MoveConstants.ChargeMoves._astonish, Type = PokemonType.Ghost, MoveType = MoveType.ChargeAttack }
             });
     }
 
