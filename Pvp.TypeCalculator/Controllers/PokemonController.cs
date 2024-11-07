@@ -2,39 +2,38 @@
 using Pvp.TypeCalculator.DTOs;
 using Pvp.TypeCalculator.Services;
 
-namespace Pvp.TypeCalculator.Controllers
+namespace Pvp.TypeCalculator.Controllers;
+
+public class PokemonController : Controller
 {
-    public class PokemonController : Controller
+    IPokemonService _pokemonService;
+
+    public PokemonController(PokemonService pokemonService)
     {
-        IPokemonService _pokemonService;
+        _pokemonService = pokemonService;
+    }
 
-        public PokemonController(PokemonService pokemonService)
-        {
-            _pokemonService = pokemonService;
-        }
+    [HttpPost]
+    public async void CreatePokemon(PokemonDTO pokemon)
+    {
+        await _pokemonService.CreatePokemon(pokemon);
+    }
 
-        [HttpPost]
-        public async void CreatePokemon(PokemonDTO pokemon)
-        {
-            _pokemonService.CreatePokemon(pokemon);
-        }
+    [HttpGet]
+    public async Task<PokemonDTO> GetPokemon(int id)
+    {
+        return await _pokemonService.GetPokemon(id);
+    }
 
-        [HttpGet]
-        public async Task<PokemonDTO> ReadPokemon(int id)
-        {
-            return await _pokemonService.ReadPokemon(id);
-        }
+    [HttpPut]
+    public async Task UpdatePokemon(PokemonDTO pokemon)
+    {
+        await _pokemonService.UpdatePokemon(pokemon);
+    }
 
-        [HttpPut]
-        public async Task<PokemonDTO> UpdatePokemon(PokemonDTO pokemon)
-        {
-            return await _pokemonService.UpdatePokemon(pokemon);
-        }
-
-        [HttpDelete]
-        public async Task<PokemonDTO> DeletePokemon(int id)
-        {
-            return await _pokemonService.DeletePokemon(id);
-        }
+    [HttpDelete]
+    public async Task<PokemonDTO> DeletePokemon(int id)
+    {
+        return await _pokemonService.DeletePokemon(id);
     }
 }

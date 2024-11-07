@@ -1,9 +1,8 @@
 ﻿using Pvp.TypeCalculator.Moves;
 
-namespace Pvp.TypeCalculator.PokemonTypes
+namespace Pvp.TypeCalculator.PokemonTypes;
+
+public interface IPokemonTypeInteraction
 {
-    public interface IPokemonTypeInteraction
-    {
-        double GetAttackRating(Move attackMove, Pokemon target);
-    }
+    double GetAttackRating(Move attackMove, Pokemon target);
 }

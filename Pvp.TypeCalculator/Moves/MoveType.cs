@@ -1,8 +1,7 @@
-﻿namespace Pvp.TypeCalculator.Moves
+﻿namespace Pvp.TypeCalculator.Moves;
+
+public enum MoveType
 {
-    public enum MoveType
-    {
-        FastAttack = 0,
-        ChargeAttack = 1,
-    }
+    FastAttack = 0,
+    ChargeAttack = 1,
 }

@@ -3,74 +3,73 @@ using Pvp.TypeCalculator.DTOs;
 using Pvp.TypeCalculator.Moves;
 using Pvp.TypeCalculator.PokemonTypes;
 
-namespace Pvp.TypeCalculator.Test
+namespace Pvp.TypeCalculator.Test;
+
+[TestClass]
+public class Battles
 {
-    [TestClass]
-    public class Battles
+    IMovesRepository movesRepo;
+
+    private Pokemon Bulbasaur;
+    private Pokemon Diglett;
+
+    [TestInitialize]
+    public void Setup()
     {
-        IMovesRepo movesRepo;
+        movesRepo = new FakeMovesRepository();
 
-        private Pokemon Bulbasaur;
-        private Pokemon Diglett;
+        CreatePokemon();
+    }
 
-        [TestInitialize]
-        public void Setup()
+    [TestMethod]
+    public void BulbasaurVsDiglett()
+    {
+        // ACT
+        var rating = Bulbasaur.Attack(Diglett);
+
+        // Assert
+        Assert.IsTrue(rating == 1);
+    }
+
+    [TestMethod]
+    public void DiglettVsBulbasaur()
+    {
+        // ACT
+        var rating = Diglett.Attack(Bulbasaur);
+
+        // Assert
+        Assert.IsTrue(rating == -1);
+    }
+
+    private void CreatePokemon()
+    {
+        var bulbasaur = new PokemonDTO
         {
-            movesRepo = new MovesDomain();
+            Name = "Bulbasaur",
+            Type1 = PokemonType.Grass,
+            Type2 = PokemonType.Poison,
+            FastMove = MoveConstants.FastMoves._vineWhip,
+            ChargeMove = MoveConstants.ChargeMoves._tackle
+        };
 
-            CreatePokemon();
-        }
-
-        [TestMethod]
-        public void BulbasaurVsDiglett()
+        var diglett = new PokemonDTO
         {
-            // ACT
-            var rating = Bulbasaur.Attack(Diglett);
+            Name = "Diglett",
+            Type1 = PokemonType.Ground,
+            FastMove = MoveConstants.FastMoves._sandAttack,
+            ChargeMove = MoveConstants.ChargeMoves._astonish
+        };
 
-            // Assert
-            Assert.IsTrue(rating == 1);
-        }
+        Bulbasaur = PokemonCreator(bulbasaur);
+        Diglett = PokemonCreator(diglett);
+    }
 
-        [TestMethod]
-        public void DiglettVsBulbasaur()
-        {
-            // ACT
-            var rating = Diglett.Attack(Bulbasaur);
+    private Pokemon PokemonCreator(PokemonDTO pokemon)
+    {
+        var moves = new MoveSet(
+            movesRepo.GetMove(pokemon.FastMove),
+            movesRepo.GetMove(pokemon.ChargeMove));
 
-            // Assert
-            Assert.IsTrue(rating == -1);
-        }
-
-        private void CreatePokemon()
-        {
-            var bulbasaur = new PokemonDTO
-            {
-                Name = "Bulbasaur",
-                Type1 = PokemonType.Grass,
-                Type2 = PokemonType.Poison,
-                FastMove = MoveConstants.FastMoves._vineWhip,
-                ChargeMove = MoveConstants.ChargeMoves._tackle
-            };
-
-            var diglett = new PokemonDTO
-            {
-                Name = "Diglett",
-                Type1 = PokemonType.Ground,
-                FastMove = MoveConstants.FastMoves._sandAttack,
-                ChargeMove = MoveConstants.ChargeMoves._astonish
-            };
-
-            Bulbasaur = PokemonCreator(bulbasaur);
-            Diglett = PokemonCreator(diglett);
-        }
-
-        private Pokemon PokemonCreator(PokemonDTO pokemon)
-        {
-            var moves = new MoveSet(
-                movesRepo.GetMove(pokemon.FastMove),
-                movesRepo.GetMove(pokemon.ChargeMove));
-
-            return new Pokemon(pokemon.Name, moves, pokemon.Type1, pokemon.Type2 ?? pokemon.Type1);
-        }
+        return new Pokemon(pokemon.Name, moves, pokemon.Type1, pokemon.Type2 ?? pokemon.Type1);
     }
 }

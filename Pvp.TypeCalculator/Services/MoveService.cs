@@ -2,28 +2,28 @@
 
 namespace Pvp.TypeCalculator.Services;
 
-public class PokemonService : IPokemonService
+public class MoveService : IMoveService
 {
-    public PokemonService()
+    public MoveService()
     {
     }
 
-    public Task CreatePokemon(PokemonDTO pokemon)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<PokemonDTO> GetPokemon(int id)
+    public Task CreateMove(MoveDTO move)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdatePokemon(PokemonDTO pokemon)
+    public Task<MoveDTO> DeleteMove(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<PokemonDTO> DeletePokemon(int id)
+    public Task<MoveDTO> GetMove(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateMove(MoveDTO move)
     {
         throw new NotImplementedException();
     }

@@ -1,12 +1,11 @@
 ﻿using Pvp.TypeCalculator.DTOs;
 
-namespace Pvp.TypeCalculator.Services
+namespace Pvp.TypeCalculator.Services;
+
+public interface IPokemonService
 {
-    public interface IPokemonService
-    {
-        Task CreatePokemon(PokemonDTO pokemon);
-        Task<PokemonDTO> ReadPokemon(int id);
-        Task<PokemonDTO> UpdatePokemon(PokemonDTO pokemon);
-        Task<PokemonDTO> DeletePokemon(int id);
-    }
+    Task CreatePokemon(PokemonDTO pokemon);
+    Task<PokemonDTO> GetPokemon(int id);
+    Task UpdatePokemon(PokemonDTO pokemon);
+    Task<PokemonDTO> DeletePokemon(int id);
 }
