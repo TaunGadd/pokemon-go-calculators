@@ -1,9 +1,9 @@
-﻿using Pvp.TypeCalculator.DTOs;
+﻿using Pvp.TypeCalculator.Constants;
+using Pvp.TypeCalculator.DTOs;
 using Pvp.TypeCalculator.Enums;
 
 namespace Pvp.TypeCalculator.Domain;
 
-// TODO
 public class FakeMoveRepository : IMoveRepository
 {
     public Task CreateMove(MoveDTO dto)
