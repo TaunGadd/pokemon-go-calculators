@@ -3,5 +3,6 @@
 public class MoveSet
 {
     public Move FastMove { get; set; }
-    public Move ChargeMove { get; set; }
+    public Move ChargeMove1 { get; set; }
+    public Move ChargeMove2 { get; set; }
 }

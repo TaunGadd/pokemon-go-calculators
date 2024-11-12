@@ -39,11 +39,13 @@ public class BattleService : IBattleService
     {
         var attackingPokemonDTO = pokemonDTOs.First(x => x.Id == id);
         var attackerFM = await _moveRepository.GetMove(attackingPokemonDTO.FastMove);
-        var attackerCM = await _moveRepository.GetMove(attackingPokemonDTO.ChargeMove);
+        var attackerCM1 = await _moveRepository.GetMove(attackingPokemonDTO.ChargeMove1);
+        var attackerCM2 = await _moveRepository.GetMove(attackingPokemonDTO.ChargeMove2);
         var attackerMoveSet = new MoveSet
         {
             FastMove = _moveMapper.Map(attackerFM),
-            ChargeMove = _moveMapper.Map(attackerCM)
+            ChargeMove1 = _moveMapper.Map(attackerCM1),
+            ChargeMove2 = _moveMapper.Map(attackerCM2)
         };
         return _pokemonMapper.Map(attackingPokemonDTO, attackerMoveSet);
     }

@@ -4,5 +4,5 @@ namespace Pvp.TypeCalculator.Calculator;
 
 public interface IPokemonTypeInteraction
 {
-    Task<double> GetAttackRating(Move attackMove, Pokemon target);
+    Task<double> InitiateAttack(Pokemon attacker, Pokemon defender);
 }

@@ -11,5 +11,6 @@ public class PokemonDTO
     public required PokemonType Type1;
     public PokemonType? Type2;
     public required string FastMove;
-    public required string ChargeMove;
+    public required string ChargeMove1;
+    public required string ChargeMove2;
 }

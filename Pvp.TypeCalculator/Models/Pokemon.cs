@@ -26,12 +26,9 @@ public class Pokemon
 
     public async Task<BattleResultDTO> Attack(Pokemon target)
     {
-        var attackRating = await _typeInteraction.GetAttackRating(MoveSet.FastMove, target) + await _typeInteraction.GetAttackRating(MoveSet.ChargeMove, target);
-        var defenseRating = await _typeInteraction.GetAttackRating(target.MoveSet.FastMove, this) + await _typeInteraction.GetAttackRating(target.MoveSet.ChargeMove, this);
-
         return new BattleResultDTO
         {
-            Rating = attackRating - defenseRating
+            Rating = await _typeInteraction.InitiateAttack(this, target)
         };
     }
 }

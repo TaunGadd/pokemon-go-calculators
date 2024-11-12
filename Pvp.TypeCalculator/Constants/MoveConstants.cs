@@ -14,5 +14,7 @@ public static partial class MoveConstants
         public const string _tackle = "Tackle";
         public const string _acidSpray = "Acid Spray";
         public const string _astonish = "Astonish";
+        public const string _solarBeam = "Solar Beam";
+        public const string _suckerPunch = "Sucker Punch";
     }
 }

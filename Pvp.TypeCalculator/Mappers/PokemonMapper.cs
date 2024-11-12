@@ -14,7 +14,8 @@ public class PokemonMapper : IPokemonMapper
             Type1 = pokemon.Type1,
             Type2 = pokemon.Type2,
             FastMove = pokemon.MoveSet.FastMove.Name,
-            ChargeMove = pokemon.MoveSet.ChargeMove.Name,
+            ChargeMove1 = pokemon.MoveSet.ChargeMove1.Name,
+            ChargeMove2 = pokemon.MoveSet.ChargeMove2.Name,
         };
     }
 

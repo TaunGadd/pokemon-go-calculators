@@ -25,7 +25,15 @@ public class BasicInteraction : IPokemonTypeInteraction
         [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1],           //Fairy
     };
 
-    public Task<double> GetAttackRating(Move attackMove, Pokemon target)
+    public async Task<double> InitiateAttack(Pokemon attacker, Pokemon defender)
+    {
+        var attackRating = GetAttackRating(attacker.MoveSet.FastMove, defender) + Math.Max(GetAttackRating(attacker.MoveSet.ChargeMove1, defender), GetAttackRating(attacker.MoveSet.ChargeMove2, defender));
+        var defenseRating = GetAttackRating(defender.MoveSet.FastMove, attacker) + Math.Max(GetAttackRating(defender.MoveSet.ChargeMove1, attacker), GetAttackRating(defender.MoveSet.ChargeMove2, attacker));
+
+        return await Task.FromResult(attackRating - defenseRating);
+    }
+
+    private double GetAttackRating(Move attackMove, Pokemon target)
     {
         double rating;
 
@@ -38,6 +46,6 @@ public class BasicInteraction : IPokemonTypeInteraction
             rating = StrengthChart[(int)attackMove.Type][(int)target.Type1];
         }
 
-        return Task.FromResult(rating);
+        return rating;
     }
 }
