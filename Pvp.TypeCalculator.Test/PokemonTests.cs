@@ -45,7 +45,8 @@ public class PokemonTests
             Type2 = PokemonType.Poison,
             MoveSet = new MoveSet{ 
                 FastMove = new Move { Name = MoveConstants.FastMoves._vineWhip, MoveType = MoveType.FastAttack, Type = PokemonType.Grass },
-                ChargeMove = new Move { Name = MoveConstants.ChargeMoves._tackle, MoveType = MoveType.ChargeAttack, Type = PokemonType.Normal},
+                ChargeMove1 = new Move { Name = MoveConstants.ChargeMoves._tackle, MoveType = MoveType.ChargeAttack, Type = PokemonType.Normal},
+                ChargeMove2 = new Move { Name = MoveConstants.ChargeMoves._solarBeam, MoveType = MoveType.ChargeAttack, Type = PokemonType.Grass},
             },
         };
 
@@ -56,7 +57,8 @@ public class PokemonTests
             MoveSet = new MoveSet
             {
                 FastMove = new Move { Name = MoveConstants.FastMoves._sandAttack, MoveType = MoveType.FastAttack, Type = PokemonType.Ground },
-                ChargeMove = new Move { Name = MoveConstants.ChargeMoves._astonish, MoveType = MoveType.ChargeAttack, Type = PokemonType.Ghost},
+                ChargeMove1 = new Move { Name = MoveConstants.ChargeMoves._astonish, MoveType = MoveType.ChargeAttack, Type = PokemonType.Ghost},
+                ChargeMove2 = new Move { Name = MoveConstants.ChargeMoves._suckerPunch, MoveType = MoveType.ChargeAttack, Type = PokemonType.Dark},
             },
         };
     }

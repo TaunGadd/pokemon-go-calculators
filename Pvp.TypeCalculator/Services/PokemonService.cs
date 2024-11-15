@@ -1,6 +1,6 @@
-﻿using Pvp.TypeCalculator.Domain;
+﻿using AsGuard.Api.Validator;
+using Pvp.TypeCalculator.Domain;
 using Pvp.TypeCalculator.DTOs;
-using Pvp.TypeCalculator.ExceptionHandling;
 
 namespace Pvp.TypeCalculator.Services;
 

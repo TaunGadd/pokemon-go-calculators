@@ -1,8 +1,8 @@
 
+using AsGuard.Api.Validator.Middelware;
 using Pvp.TypeCalculator.Calculator;
 using Pvp.TypeCalculator.Domain;
 using Pvp.TypeCalculator.Mappers;
-using Pvp.TypeCalculator.Middleware;
 using Pvp.TypeCalculator.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<ExceptionResponseHandler>();
+app.UseMiddleware<GuardMiddleware>();
 
 app.UseHttpsRedirection();
 
