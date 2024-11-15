@@ -1,5 +1,6 @@
 ﻿using Pvp.TypeCalculator.Domain;
 using Pvp.TypeCalculator.DTOs;
+using Pvp.TypeCalculator.ExceptionHandling;
 using Pvp.TypeCalculator.Mappers;
 using Pvp.TypeCalculator.Models;
 
@@ -27,6 +28,10 @@ public class BattleService : IBattleService
 
     public async Task<BattleResultDTO> Battle(int attackerId, int defenderId)
     {
+        Guard.Against
+            .NegativeOrZeroValue(attackerId, nameof(attackerId))
+            .NegativeOrZeroValue(defenderId, nameof(defenderId));
+
         var pokemonDTOs = await _pokemonRepository.GetPokemon(new List<int> { attackerId, defenderId });
 
         var attackingPokemon = await GeneratePokemon(attackerId, pokemonDTOs);

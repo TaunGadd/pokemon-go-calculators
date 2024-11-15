@@ -14,7 +14,7 @@ public class BattleController : Controller
     }
 
     [HttpPost]
-    public async Task<BattleResultDTO> Battle(int attackerId, int defenderId)
+    public async Task<ActionResult<BattleResultDTO>> Battle(int attackerId, int defenderId)
     {
         return await _battleService.Battle(attackerId, defenderId);
     }

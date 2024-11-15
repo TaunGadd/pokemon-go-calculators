@@ -14,25 +14,27 @@ public class PokemonController : Controller
     }
 
     [HttpPost]
-    public async Task CreatePokemon(PokemonDTO dto)
+    public async Task<ActionResult> CreatePokemon(PokemonDTO dto)
     {
         await _pokemonService.CreatePokemon(dto);
+        return Ok();
     }
 
     [HttpGet]
-    public async Task<PokemonDTO> GetPokemon(int id)
+    public async Task<ActionResult<PokemonDTO>> GetPokemon(int id)
     {
         return await _pokemonService.GetPokemon(id);
     }
 
     [HttpPut]
-    public async Task UpdatePokemon(PokemonDTO dto)
+    public async Task<ActionResult> UpdatePokemon(PokemonDTO dto)
     {
         await _pokemonService.UpdatePokemon(dto);
+        return Ok();
     }
 
     [HttpDelete]
-    public async Task<PokemonDTO> DeletePokemon(int id)
+    public async Task<ActionResult<PokemonDTO>> DeletePokemon(int id)
     {
         return await _pokemonService.DeletePokemon(id);
     }

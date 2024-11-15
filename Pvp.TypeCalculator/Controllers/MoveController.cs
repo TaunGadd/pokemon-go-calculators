@@ -14,25 +14,27 @@ public class MoveController : Controller
     }
 
     [HttpPost]
-    public async Task CreateMove(MoveDTO dto)
+    public async Task<ActionResult> CreateMove(MoveDTO dto)
     {
         await _moveService.CreateMove(dto);
+        return Ok();
     }
 
     [HttpGet]
-    public async Task<MoveDTO> GetMove(int id)
+    public async Task<ActionResult<MoveDTO>> GetMove(int id)
     {
         return await _moveService.GetMove(id);
     }
 
     [HttpPatch]
-    public async Task UpdateMove(MoveDTO dto)
+    public async Task<ActionResult> UpdateMove(MoveDTO dto)
     {
         await _moveService.UpdateMove(dto);
+        return Ok();
     }
 
     [HttpDelete]
-    public async Task<MoveDTO> DeleteMove(int id)
+    public async Task<ActionResult<MoveDTO>> DeleteMove(int id)
     {
         return await _moveService.DeleteMove(id);
     }
